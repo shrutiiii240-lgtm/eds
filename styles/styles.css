@@ -323,3 +323,8 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+
+.section carousel-container .default-content-wrapper p{
+  color:yellow;
+}
