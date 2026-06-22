@@ -1,11 +1,11 @@
 {
-  "project": "Geeks Edge Deliver Services",
+  "project": "eds",
   "plugins": [
     {
       "id": "asset-library",
       "title": "AEM Assets",
       "environments": [
-      "edit","dev"
+      "edit","dev","preview", "live", "prod"
       ],
       "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html?rail=false",
       "isPalette": true,
