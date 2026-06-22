@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+    
   /* Picks up the site's existing variables when present, falls back otherwise */
   border-radius: var(--block-radius, 0);
 }
@@ -42,7 +43,7 @@
 
 .carousel-slide-content {
   position: absolute;
-  inset: auto 0 0 0;
+  inset: auto 0 0 ;
   box-sizing: border-box;
   padding: 24px 32px;
   color: #fff;
