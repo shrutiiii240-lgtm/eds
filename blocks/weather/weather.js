@@ -13,15 +13,15 @@ export default async function decorate(block) {
   });
 
   // Default coordinates (Nagpur) if not provided
-  const latitude = config.latitude || "21.1458";
-  const longitude = config.longitude || "79.0882";
+  const latitude = config.latitude || '21.1458';
+  const longitude = config.longitude || '79.0882';
 
   // Clear the existing table
-  block.innerHTML = "<p>Loading weather...</p>";
+  block.innerHTML = '<p>Loading weather...</p>';
 
   try {
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`,
     );
 
     const data = await response.json();
@@ -35,7 +35,7 @@ export default async function decorate(block) {
       </div>
     `;
   } catch (error) {
-    block.innerHTML = "<p>Unable to load weather data.</p>";
+    block.innerHTML = '<p>Unable to load weather data.</p>';
     console.error(error);
   }
 }

@@ -1,71 +1,64 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Contact Utility Loaded');
 
-    console.log("Contact Utility Loaded");
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('status');
 
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("status");
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-    form.addEventListener("submit", async (event) => {
+    status.textContent = 'Submitting...';
 
-        event.preventDefault();
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
 
-        status.textContent = "Submitting...";
+      const referrer = urlParams.get('referrer') || '';
+      const project = urlParams.get('project') || '';
+      const repo = urlParams.get('repo') || '';
 
-        try {
+      const formData = new FormData();
 
-            const urlParams = new URLSearchParams(window.location.search);
+      formData.append('gdocument', referrer);
+      formData.append('project', project);
+      formData.append('git repo', repo);
 
-            const referrer = urlParams.get("referrer") || "";
-            const project = urlParams.get("project") || "";
-            const repo = urlParams.get("repo") || "";
+      formData.append(
+        'name',
+        document.getElementById('name').value,
+      );
 
-            const formData = new FormData();
+      formData.append(
+        'email',
+        document.getElementById('email').value,
+      );
 
-            formData.append("gdocument", referrer);
-            formData.append("project", project);
-            formData.append("git repo", repo);
+      formData.append(
+        'phone',
+        document.getElementById('phone').value,
+      );
 
-            formData.append(
-                "name",
-                document.getElementById("name").value
-            );
+      formData.append(
+        'message',
+        document.getElementById('message').value,
+      );
 
-            formData.append(
-                "email",
-                document.getElementById("email").value
-            );
+      const response = await fetch(
+        'https://webhook.site/cb5893e5-6995-4ea3-a00b-8d791d8bf5fa',
+        {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors',
+        },
+      );
 
-            formData.append(
-                "phone",
-                document.getElementById("phone").value
-            );
+      console.log('Form submitted');
 
-            formData.append(
-                "message",
-                document.getElementById("message").value
-            );
+      status.textContent = 'Form submitted successfully!';
+      form.reset();
+    } catch (error) {
+      console.error(error);
 
-            const response = await fetch(
-                "https://webhook.site/cb5893e5-6995-4ea3-a00b-8d791d8bf5fa",
-                {
-                    method: "POST",
-                    body: formData,
-                    mode: "no-cors"
-                }
-            );
-
-            console.log("Form submitted");
-
-            status.textContent = "Form submitted successfully!";
-            form.reset();
-
-        } catch (error) {
-
-            console.error(error);
-
-            status.textContent =
-                "Error submitting form.";
-
-        }
-    });
+      status.textContent = 'Error submitting form.';
+    }
+  });
 });
