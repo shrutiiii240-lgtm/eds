@@ -48,7 +48,7 @@
       "title": "Block Library",
       "environments": ["edit"],
       "url": "/tools/sidekick/library.html",
-      "includePaths": ["**.docx**"]
+      
     },
     {
       "id": "contactus-palette",
