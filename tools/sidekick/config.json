@@ -30,6 +30,20 @@
       "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"
     },
     {
+        "id":"tools",
+        "title":"Tools",
+        "isContainer":true
+    },
+    {
+        "isContainer":true,
+        "id":"youtube",
+        "title":"YouTube",
+        "url":"https://youtu.be/jFfjeQnszi4?si=pmlyVLbCHfB-iPA2",
+        "environments":["edit","dev","preview","live","prod"],
+        "passConfig":true,
+        "passReferrer":true
+    },
+    {
       "id": "library",
       "title": "Block Library",
       "environments": ["edit"],
