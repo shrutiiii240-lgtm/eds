@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       console.log('Form submitted');
+      console.log(response);
 
       status.textContent = 'Form submitted successfully!';
       form.reset();
