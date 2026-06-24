@@ -1,0 +1,74 @@
+{
+  "project": "eds",
+  "plugins": [
+    {
+      "id": "asset-library",
+      "title": "AEM Assets",
+      "environments": [
+      "edit","dev","preview", "live", "prod"
+      ],
+      "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html?rail=false",
+      "isPalette": true,
+      "passConfig": true,
+      "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"
+    },  
+    {
+      "id": "google-assist",
+      "title": "Google Assist",
+      "environments": [ "edit","dev", "preview", "live", "prod"],
+      "url": "https://www.google.com/search?q=edge+delivery+services",
+      "isPalette": true,
+      "passConfig":true,
+      "passReferrer": true,
+      "excludePaths":[
+        "**/fr/**"
+      ],
+      "includePaths": [
+        "**.docx**",
+        "**/fr/blocks/**"
+      ],
+      "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"
+    },
+    {
+        "id":"tools",
+        "title":"Tools",
+        "isContainer":true
+    },
+    {
+        "containerId":"tools",
+        "id":"youtube",
+        "title":"YouTube",
+        "url":"https://youtu.be/jFfjeQnszi4?si=pmlyVLbCHfB-iPA2",
+        "environments":["edit","dev","preview","live","prod"],
+        "passConfig":true,
+        "passReferrer":true
+    },
+    {
+      "id": "library",
+      "title": "Block Library",
+      "environments": ["edit"],
+      "url": "/tools/sidekick/library.html"
+      
+       
+    },
+    {
+      "id": "contactus-palette",
+      "title": "Contactus-Palette",
+      "environments": [ "edit","dev", "preview", "live", "prod"],
+      "url": "/tools/contactus/contactus.html",
+      "isPalette": true,
+      "passConfig":true,
+      "passReferrer": true,
+      "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"
+    },
+    {
+      "id": "contactus-page",
+      "title": "Contactus-Page",
+      "environments": [ "edit","dev", "preview", "live", "prod"],
+      "url": "/tools/contactus/contactus.html",
+      "passConfig":true,
+      "passReferrer": true
+    }
+
+  ]
+}
