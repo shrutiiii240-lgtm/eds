@@ -1,0 +1,30 @@
+.hero {
+  padding: 2rem;
+}
+
+/* Dark variant */
+.hero.dark {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Centered variant */
+.hero.centered {
+  text-align: center;
+}
+
+/* Large variant */
+.hero.large {
+  padding: 6rem 2rem;
+}
+
+/* Combination example */
+.hero.dark.large {
+  min-height: 500px;
+}
+
+/* Example content styling */
+.hero h1,
+.hero p:first-child {
+  margin-bottom: 1rem;
+}
