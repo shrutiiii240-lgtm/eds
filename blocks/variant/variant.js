@@ -1,7 +1,4 @@
 export default function decorate(block) {
-  // No special code required.
-  // EDS automatically adds the option classes.
-
   if (block.classList.contains('dark')) {
     console.log('Dark variant enabled');
   }

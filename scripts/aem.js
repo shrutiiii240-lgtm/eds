@@ -651,6 +651,21 @@ async function loadSections(element) {
 
 init();
 
+async function fetchPlaceholders() {
+  const resp = await fetch('/placeholders.json');
+
+  if (!resp.ok) {
+    return {};
+  }
+
+  const json = await resp.json();
+
+  return json.data.reduce((acc, curr) => {
+    acc[toCamelCase(curr.Key)] = curr.Text;
+    return acc;
+  }, {});
+}
+
 export {
   buildBlock,
   createOptimizedPicture,
@@ -674,4 +689,5 @@ export {
   toClassName,
   waitForFirstImage,
   wrapTextNodes,
+  fetchPlaceholders,
 };
