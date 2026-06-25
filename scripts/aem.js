@@ -652,7 +652,7 @@ async function loadSections(element) {
 init();
 
 async function fetchPlaceholders() {
-  const resp = await fetch('/placeholders.json');
+  const resp = await fetch('/placeholder.json');
 
   if (!resp.ok) {
     console.error('Failed to load placeholders.json');
