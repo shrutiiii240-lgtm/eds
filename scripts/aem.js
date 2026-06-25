@@ -655,15 +655,22 @@ async function fetchPlaceholders() {
   const resp = await fetch('/placeholders.json');
 
   if (!resp.ok) {
+    console.error('Failed to load placeholders.json');
     return {};
   }
 
   const json = await resp.json();
 
-  return json.data.reduce((acc, curr) => {
-    acc[toCamelCase(curr.Key)] = curr.Text;
-    return acc;
-  }, {});
+  const rows = json?.data || [];
+
+  const result = {};
+
+  rows.forEach((item) => {
+    const key = toCamelCase(item.Key);
+    result[key] = item.Text;
+  });
+
+  return result;
 }
 
 export {
