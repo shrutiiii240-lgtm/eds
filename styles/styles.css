@@ -333,3 +333,20 @@ main .section.highlight {
 .section .carousel-container .default-content-wrapper p {
   color: yellow;
 }
+
+
+main .section.red{
+  color: red;
+}
+
+
+main .section.dark {
+  margin: 0;
+  padding: 40px 0;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+main .section.align-center {
+  text-align: center;
+}

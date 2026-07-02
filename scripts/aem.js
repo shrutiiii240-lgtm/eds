@@ -651,6 +651,41 @@ async function loadSections(element) {
 
 init();
 
+async function fetchPlaceholders() {
+  try {
+    // 1. detect locale from URL (/en, /fr, etc.)
+    const locale = window.location.pathname.split('/')[1] || 'en';
+
+    // 2. build correct DA sheet URL
+    const url = `/${locale}/placeholder.json`;
+
+    const resp = await fetch(url);
+
+    if (!resp.ok) {
+      console.error(`Placeholders not found at ${url}`);
+      return {};
+    }
+
+    const json = await resp.json();
+
+    // 3. DA sheet format: { data: [...] }
+    const rows = json?.data || [];
+
+    // 4. convert to key-value object
+    return rows.reduce((acc, item) => {
+      if (!item?.Key) return acc;
+
+      const key = toCamelCase(item.Key);
+      acc[key] = item.Text || '';
+
+      return acc;
+    }, {});
+  } catch (err) {
+    console.error('Error fetching placeholders:', err);
+    return {};
+  }
+}
+
 export {
   buildBlock,
   createOptimizedPicture,
@@ -674,4 +709,5 @@ export {
   toClassName,
   waitForFirstImage,
   wrapTextNodes,
+  fetchPlaceholders,
 };

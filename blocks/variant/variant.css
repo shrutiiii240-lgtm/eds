@@ -1,0 +1,26 @@
+.variant {
+  padding: 2rem;
+}
+
+/* Dark variant */
+.variant.dark {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Centered variant */
+.variant.centered {
+  text-align: center;
+}
+
+/* Large variant */
+.variant.large {
+  padding: 6rem 2rem;
+}
+
+/* Combination example */
+.variant.dark.large {
+  min-height: 500px;
+}
+
+
